@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SaveInventory:jar">
+    <output-path>$USER_HOME$/OneDrive/Desktop/Apps/Minecraft/Servers/1.18.1 server/plugins</output-path>
+    <root id="archive" name="SaveInventory.jar">
+      <element id="module-output" name="SaveInventory" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../Dependencies/spigot-api-1.18.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
