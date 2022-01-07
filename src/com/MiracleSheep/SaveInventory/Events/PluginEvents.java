@@ -24,6 +24,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryInteractEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.RenderType;
 
 //this is the class that listens for events
 public class PluginEvents implements Listener {
@@ -46,6 +50,19 @@ public class PluginEvents implements Listener {
 
 
 
+        }
+    }
+
+    //Player death event is when the player's inventory will be saved
+    @EventHandler
+    public static void onPlayerJoin(PlayerJoinEvent e) {
+        Player player = e.getPlayer();
+        org.bukkit.scoreboard.Scoreboard board = player.getScoreboard();
+        Objective objective = board.getObjective("showhealth");
+        if (objective == null) {
+            String dName = ChatColor.RED + "\u2665";
+            objective = board.registerNewObjective("showhealth", "health", dName, RenderType.HEARTS);
+            objective.setDisplaySlot(DisplaySlot.PLAYER_LIST);
         }
     }
 
